@@ -32,7 +32,6 @@ class AROverlayPainter extends CustomPainter {
     final boardPaint = Paint();
 
     if (designImage != null) {
-      // Draw design image mapped to board rect
       paintImage(
         canvas: canvas,
         rect: boardRect,
@@ -40,7 +39,6 @@ class AROverlayPainter extends CustomPainter {
         fit: BoxFit.fill,
       );
     } else {
-      // Placeholder board
       boardPaint.color = locked
           ? const Color(0xFF1a3a6b).withOpacity(0.85)
           : Colors.transparent;
@@ -61,7 +59,6 @@ class AROverlayPainter extends CustomPainter {
         RRect.fromRectAndRadius(boardRect, const Radius.circular(4)),
         glowPaint,
       );
-      // Inner brightness overlay
       final brightPaint = Paint()
         ..color = Colors.white.withOpacity(isNight ? 0.15 : 0.08);
       canvas.drawRRect(
@@ -80,10 +77,8 @@ class AROverlayPainter extends CustomPainter {
       borderPaint,
     );
 
-    // Corner brackets
     _drawCornerBrackets(canvas, boardRect, locked ? Colors.greenAccent : Colors.cyanAccent);
 
-    // Scanning line animation (when not locked)
     if (!locked) {
       final scanY = boardRect.top + boardRect.height * animValue;
       final scanPaint = Paint()
@@ -97,7 +92,6 @@ class AROverlayPainter extends CustomPainter {
       );
     }
 
-    // Measurement label
     if (locked) {
       _drawMeasurementLabel(canvas, boardRect, size);
     }
@@ -111,16 +105,12 @@ class AROverlayPainter extends CustomPainter {
       ..strokeCap = StrokeCap.round;
 
     const len = 24.0;
-    // Top-left
     canvas.drawLine(Offset(rect.left, rect.top + len), Offset(rect.left, rect.top), paint);
     canvas.drawLine(Offset(rect.left, rect.top), Offset(rect.left + len, rect.top), paint);
-    // Top-right
     canvas.drawLine(Offset(rect.right - len, rect.top), Offset(rect.right, rect.top), paint);
     canvas.drawLine(Offset(rect.right, rect.top), Offset(rect.right, rect.top + len), paint);
-    // Bottom-left
     canvas.drawLine(Offset(rect.left, rect.bottom - len), Offset(rect.left, rect.bottom), paint);
     canvas.drawLine(Offset(rect.left, rect.bottom), Offset(rect.left + len, rect.bottom), paint);
-    // Bottom-right
     canvas.drawLine(Offset(rect.right - len, rect.bottom), Offset(rect.right, rect.bottom), paint);
     canvas.drawLine(Offset(rect.right, rect.bottom), Offset(rect.right, rect.bottom - len), paint);
   }
