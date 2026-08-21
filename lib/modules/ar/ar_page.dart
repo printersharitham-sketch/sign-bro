@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import '../../core/sign_bro_module.dart';
 import '../../theme/app_theme.dart';
+import 'guided_ar_capture.dart';
+import 'advanced_ar_capture.dart';
 
 class ARModule extends SignBroModule {
   @override
@@ -142,6 +144,49 @@ class _ARPageState extends State<ARPage> {
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                     ),
                     child: Text(_isLocked ? 'UNLOCK' : 'LOCK'),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 16),
+            // New AR mode navigation buttons
+            Row(
+              children: [
+                Expanded(
+                  child: OutlinedButton.icon(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (_) => const GuidedARCapture()),
+                      );
+                    },
+                    icon: const Icon(Icons.assistant_navigation, size: 20),
+                    label: const Text('Guided Scan'),
+                    style: OutlinedButton.styleFrom(
+                      foregroundColor: AppTheme.cyan,
+                      side: const BorderSide(color: AppTheme.cyan),
+                      padding: const EdgeInsets.symmetric(vertical: 12),
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: OutlinedButton.icon(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (_) => const AdvancedARCapture()),
+                      );
+                    },
+                    icon: const Icon(Icons.tune, size: 20),
+                    label: const Text('Advanced AR'),
+                    style: OutlinedButton.styleFrom(
+                      foregroundColor: AppTheme.gold,
+                      side: const BorderSide(color: AppTheme.gold),
+                      padding: const EdgeInsets.symmetric(vertical: 12),
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                    ),
                   ),
                 ),
               ],
