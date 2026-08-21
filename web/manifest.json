@@ -1,0 +1,11 @@
+{
+    "name": "Sign Bro",
+    "short_name": "SignBro",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#FFFFFF",
+    "theme_color": "#D4AF37",
+    "description": "SIGN BRO - AI Powered Signage Marketplace",
+    "orientation": "portrait-primary",
+    "prefer_related_applications": false
+}

@@ -20,6 +20,7 @@ dependencies:
   flutter_svg: ^2.0.9
   cached_network_image: ^3.3.0
   intl: ^0.18.1
+  audioplayers: ^6.1.0
 
 dev_dependencies:
   flutter_test:
@@ -31,3 +32,10 @@ flutter:
   assets:
     - assets/images/
     - assets/logo/
+    - assets/sounds/tap.mp3
+    - assets/sounds/scan_start.mp3
+    - assets/sounds/lock.mp3
+    - assets/sounds/success.mp3
+    - assets/sounds/error.mp3
+    - assets/sounds/navigation.mp3
+    - assets/sounds/quote.mp3
