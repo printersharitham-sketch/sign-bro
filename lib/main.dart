@@ -6,6 +6,7 @@ import 'screens/ar_scan_screen.dart';
 import 'screens/projects_screen.dart';
 import 'screens/profile_screen.dart';
 import 'widgets/bottom_nav.dart';
+import 'pages/sign_bro_technology_page.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,6 +23,9 @@ class SignBroApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: AppTheme.theme,
       home: const MainShell(),
+      routes: {
+        '/technologies': (_) => const SignBroTechnologyPage(),
+      },
     );
   }
 }
